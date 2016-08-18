@@ -1,0 +1,29 @@
+#FeaturedPost1{
+    padding: 10px 14px;
+    border: 1px rgba(84, 65, 71, 0.5) solid;
+}
+
+.sidebar .widget{
+	margin-top: 30px;
+}
+
+#HTML3{
+	margin-top: 50px;
+}
+
+#Stats1{
+	text-align: center;
+}
+
+#header-inner img {
+	margin : auto;
+	margin-bottom : 30px;
+}
+
+.widget {
+	margin: 0 0;
+}
+
+.hidden {
+	visibility: hidden;
+}
