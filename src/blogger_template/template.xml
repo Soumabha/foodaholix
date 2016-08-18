@@ -4,21 +4,18 @@
   <head>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
     <link href='https://fonts.googleapis.com/css?family=Copse|Open+Sans' rel='stylesheet'/>
-    <b:if cond='data:blog.isMobile'>
-      <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0' name='viewport'/>
-    <b:else/>
-      <meta content='width=1024' name='viewport'/>
-    </b:if>
     <b:include data='blog' name='all-head-content'/>
+    <title>
     <b:if cond='data:blog.pageType == &quot;index&quot;'>
-  <title><data:blog.title/></title>
-      <b:else/>
-    <b:if cond='data:blog.pageType == &quot;error_page&quot;'>
-    <title>Page Not Found</title>
+      <data:blog.title/>
     <b:else/>
-    <title><data:blog.pageName/></title>
+      <b:if cond='data:blog.pageType != &quot;error_page&quot;'>
+          <data:blog.pageName/> | <data:blog.title/>
+      <b:else/>
+        Page Not Found - <data:blog.title/>
       </b:if>
-  </b:if>
+    </b:if>
+    </title>
 
     <b:skin><![CDATA[/*
 -----------------------------------------------
