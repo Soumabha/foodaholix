@@ -29,8 +29,8 @@
 }
 @font-face {
   font-family: 'MG_Icons24';
-  src: url("http://foodaholixassets.s3.amazonaws.com/fonts/MG_Icons.eot");
-  src: url("http://foodaholixassets.s3.amazonaws.com/fonts/MG_Icons.eot?#iefix") format('embedded-opentype'),    url("http://foodaholixassets.s3.amazonaws.com/fonts/MG_Icons.woff?#109371990") format('woff'),    url("http://foodaholixassets.s3.amazonaws.com/fonts/MG_Icons.ttf?#109371990") format('truetype');
+  src: url("//foodaholixassets.s3.amazonaws.com/fonts/MG_Icons.eot");
+  src: url("//foodaholixassets.s3.amazonaws.com/fonts/MG_Icons.eot?#iefix") format('embedded-opentype'),    url("//foodaholixassets.s3.amazonaws.com/fonts/MG_Icons.woff?#109371990") format('woff'),    url("//foodaholixassets.s3.amazonaws.com/fonts/MG_Icons.ttf?#109371990") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
