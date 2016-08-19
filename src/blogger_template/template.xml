@@ -16,6 +16,15 @@
       </b:if>
     </b:if>
     </title>
+
+    <!-- Description and Keywords (start) -->
+    <b:if cond='data:blog.pageType == &quot;index&quot;'>
+      <meta expr:content='data:blog.title + &quot;, naman, soumabha, sabyasachi, delhi, kolkata, hyderabad, bangalore,food festivals, cafe, biryani &quot;' name='keywords'/>
+    <b:else/>
+      <meta expr:content='data:blog.pageName + &quot;, &quot; + data:blog.title + &quot;, &quot; + data:post.author ' name='keywords'/>
+    </b:if>
+    <!-- Description and Keywords (end) -->
+
     <b:skin><![CDATA[/*
 -----------------------------------------------
 Blogger Template Style
