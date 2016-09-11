@@ -24,6 +24,7 @@
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+<link href='//stage.foodaholixassets.s3.amazonaws.com/css/fholix.css' rel='stylesheet'/>
 
 <b:skin><![CDATA[/*
 -----------------------------------------------
@@ -290,7 +291,7 @@ html {
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: #E4D2A8;
   background-attachment: scroll;
   color: #666;
   font-family: Rokkitt,sans-serif;
@@ -446,7 +447,7 @@ video {
 /* Forms
 --------------------------------------------- */
 
-input,
+
 select,
 textarea {
   background-color: #fff;
@@ -459,6 +460,17 @@ textarea {
   padding: 16px;
   padding: 1.6rem;
   width: 100%;
+}
+
+input{
+  background-color: #fff;
+  border: 1px solid #ddd !important;
+  border-radius: 3px;
+  box-shadow: 1px 1px 3px #eee inset;
+  color: #999;
+  font-size: 14px;
+  font-size: 1.4rem;
+  padding: 10px;  width: 100%;
 }
 
 input:focus,
@@ -479,7 +491,6 @@ textarea:focus {
 button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"],
 .button,
 .entry-content .button {
   background-color: #544741;
@@ -489,6 +500,17 @@ input[type="submit"],
   cursor: pointer;
   padding: 16px 24px;
   padding: 1.6rem 2.4rem;
+  text-transform: uppercase;
+  width: auto;
+}
+
+input[type="submit"]{
+  background-color: #544741;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 24px;
   text-transform: uppercase;
   width: auto;
 }
@@ -720,6 +742,10 @@ Common Classes
   color: #333;
 }
 
+.entry-title a:hover {
+  color: #f15123;
+}
+
 h2.entry-title:hover {
   color: #000 !important;
 }
@@ -780,7 +806,7 @@ Site Header
 
 .site-headernbt .wrapnbt {
   padding: 40px 0;
-  padding: 2rem 0;
+  padding: 2rem 0 0 0;
 }
 
 /* Title Area
@@ -857,7 +883,8 @@ Site Header
 .site-headernbt .widget-areanbt {
   float: right;
   text-align: right;
-  width: 800px;
+  width: 800px;  
+  margin-top: 15px;
 }
 
 /*
@@ -1041,7 +1068,7 @@ Content Area
   margin-bottom: 4rem;
   padding: 40px 40px 24px;
   padding: 4rem 4rem 2.4rem;
-  border-color: #E5E6E9 #DFE0E4 #D0D1D5;
+  border-color: #544541;
   border-style: solid;
   border-width: 1px;
 }
@@ -1126,7 +1153,7 @@ Sidebars
 ---------------------------------------------------------------------------------------------------- */
 
 .sidebarnbt {
-  color: #999;
+  color: #544541;
 }
 
 .sidebarnbt a {
@@ -1149,7 +1176,7 @@ Sidebars
 }
 
 .sidebarnbt .widget {
-  background-color: #fff;
+  background-color: #E4D2A8;
   margin-top: 20px;
   margin-top: 2rem;
   margin-bottom: 40px;
@@ -1800,12 +1827,16 @@ a.readmorenbt:hover {
   background-color: #ee5f5b;
 }
 
+#search-box {
+  padding: 1.6rem 0; 
+}
+
 .search-querynbt {
   width: 60% !important;
 }
 
 .search-submitnbt {
-  width: 38% !important;
+  width: 14% !important;
   float: right;
 }
 
@@ -1825,6 +1856,8 @@ h2.date-header {
 
 #header .description {
 }
+
+#
 
 /* Comments----------------------------------------------- */
 #comments {
@@ -2014,7 +2047,7 @@ h2.date-header {
 }
 
 body {
-  background-image: url(http://2.bp.blogspot.com/-Hm3T7xvyEHY/VVFzNTane3I/AAAAAAAANEU/5u8UrSAC26Y/s1600/body.png); 
+  background-image: url(http://2.bp.blogspot.com/-0cd1hQjGD34/VmxAmhnhQvI/AAAAAAAAENQ/yq4i4eMOwD4/s0-r/Foodaholix%2BBackground.jpg) repeat scroll top left); 
   background-repeat: repeat; 
   background-position: top left; 
   background-attachment: scroll;
@@ -2103,7 +2136,7 @@ function createSummaryAndThumb(pID){
 
 <div class='site-containernbt'>
 
-<header class='site-headernbt'>
+<header class='site-headernbt' id='site-header'>
 <div class='wrapnbt'>
 
 <div class='title-areanbt'>
@@ -2159,75 +2192,156 @@ function createSummaryAndThumb(pID){
 </div>
 
 <div class='widget-areanbt'>
-<div class='widget widget_search'>
-<form action='/search' id='searchformnbt' method='get' role='search'>
-<div>
-  <input class='search-querynbt' id='s' name='q' type='text' value=''/>
-  <input class='search-submitnbt' id='searchsubmitnbt' type='submit' value='Search'/>
-</div>
-</form>
-</div>
-</div>
 
+  <b:if cond='data:blog.isMobileRequest == "false"'>
+    <div class='widget widget_search' id='search-box'>
+    <form action='/search' id='searchformnbt' method='get' role='search'>
+    <div>
+      <input class='search-querynbt' id='s' name='q' type='text' value=''/>
+      <input class='search-submitnbt' id='searchsubmitbt' type='submit' value='Search'/>
+    </div>
+    </form>
+    </div>
+  </b:if>
 </div>
+</div>
+<script type="text/javascript"> 
+      $(function() {
+      
+        var Page = (function() {
+
+          var $nav = $( '#nav-dots > span' ),
+            slitslider = $( '#slider' ).slitslider( {
+              onBeforeChange : function( slide, pos ) {
+
+                $nav.removeClass( 'nav-dot-current' );
+                $nav.eq( pos ).addClass( 'nav-dot-current' );
+
+              }
+            } ),
+
+            init = function() {
+
+              initEvents();
+              
+            },
+            initEvents = function() {
+
+              $nav.each( function( i ) {
+              
+                $( this ).on( 'click', function( event ) {
+                  
+                  var $dot = $( this );
+                  
+                  if( !slitslider.isActive() ) {
+
+                    $nav.removeClass( 'nav-dot-current' );
+                    $dot.addClass( 'nav-dot-current' );
+                  
+                  }
+                  
+                  slitslider.jump( i + 1 );
+                  return false;
+                
+                } );
+                
+              } );
+
+            };
+
+            return { init : init };
+
+        })();
+
+        Page.init();
+
+        /**
+         * Notes: 
+         * 
+         * example how to add items:
+         */
+
+        /*
+        
+        var $items  = $('<div class="sl-slide sl-slide-color-2" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1"><div class="sl-slide-inner bg-1"><div class="sl-deco" data-icon="t"></div><h2>some text</h2><blockquote><p>bla bla</p><cite>Margi Clarke</cite></blockquote></div></div>');
+        
+        // call the plugin's add method
+        ss.add($items);
+
+        */
+      
+      });
+    </script>
 </header>
 
-<nav class='nav-primarynbt'>
-<div class='wrapnbt'>
-<ul class='thefunk-nav-menunbt'>
-
-<li><a expr:href='data:blog.homepageUrl'>Home</a></li>
-
-<li><a href='#'>Business</a>
-<ul class='sub-menu'>
-<li><a href='#'>Internet</a></li>
-<li><a href='#'>Market</a></li>
-<li><a href='#'>Stock</a></li>
-</ul>
-</li>
-
-<li><a href='#'>Downloads</a>
-<ul class='sub-menu'>
-<li><a href='#'>Dvd</a></li>
-<li><a href='#'>Games</a></li>
-<li><a href='#'>Software</a>
-<ul class='sub-menu'>
-<li><a href='#'>Office</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-
-<li><a href='#'>Parent Category</a>
-<ul class='sub-menu'>
-<li><a href='#'>Child Category 1</a>
-<ul class='sub-menu'>
-<li><a href='#'>Sub Child Category 1</a></li>
-<li><a href='#'>Sub Child Category 2</a></li>
-<li><a href='#'>Sub Child Category 3</a></li>
-</ul>
-</li>
-<li><a href='#'>Child Category 2</a></li>
-<li><a href='#'>Child Category 3</a></li>
-<li><a href='#'>Child Category 4</a></li>
-</ul>
-</li>
-
-<li><a href='#'>Featured</a></li>
-
-<li><a href='#'>Health</a>
-<ul class='sub-menu'>
-<li><a href='#'>Childcare</a></li>
-<li><a href='#'>Doctors</a></li>
-</ul>
-</li>
-
-<li><a href='#'>Uncategorized</a></li>
-
-</ul>
+<div class="widget-content" id="dropdown-menu">
+  <div id='MyMenu1'>
+    <a href="//www.foodaholix.in">
+      <img id="sticky-header-img" src="//stage.foodaholixassets.s3.amazonaws.com/images/FB_Foodaholix.jpg" class="hidden" />
+    </a>
+  </div>
 </div>
-</nav>
+<script src='//stage.foodaholixassets.s3.amazonaws.com/js/fholix.min.js' type='text/javascript'></script>
+<div class='clear'/>
+
+
+<div class="container demo-2" id="foodaholix-slider">
+
+      <div id="slider" class="sl-slider-wrapper">
+
+        <div class="sl-slider">
+        
+          <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-1"></div>
+              <h2>A bene placito.</h2>
+              <blockquote><p>You have just dined, and however scrupulously the slaughterhouse is concealed in the graceful distance of miles, there is complicity.</p><cite>Ralph Waldo Emerson</cite></blockquote>
+            </div>
+          </div>
+          
+          <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-2"></div>
+              <h2>Regula aurea.</h2>
+              <blockquote><p>Until he extends the circle of his compassion to all living things, man will not himself find peace.</p><cite>Albert Schweitzer</cite></blockquote>
+            </div>
+          </div>
+          
+          <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-3"></div>
+              <h2>Dum spiro, spero.</h2>
+              <blockquote><p>Thousands of people who say they 'love' animals sit down once or twice a day to enjoy the flesh of creatures who have been utterly deprived of everything that could make their lives worth living and who endured the awful suffering and the terror of the abattoirs.</p><cite>Dame Jane Morris Goodall</cite></blockquote>
+            </div>
+          </div>
+          
+          <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-4"></div>
+              <h2>Donna nobis pacem.</h2>
+              <blockquote><p>The human body has no more need for cows' milk than it does for dogs' milk, horses' milk, or giraffes' milk.</p><cite>Michael Klaper M.D.</cite></blockquote>
+            </div>
+          </div>
+          
+          <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
+            <div class="sl-slide-inner">
+              <div class="bg-img bg-img-5"></div>
+              <h2>Acta Non Verba.</h2>
+              <blockquote><p>I think if you want to eat more meat you should kill it yourself and eat it raw so that you are not blinded by the hypocrisy of having it processed for you.</p><cite>Margi Clarke</cite></blockquote>
+            </div>
+          </div>
+        </div><!-- /sl-slider -->
+
+        <nav id="nav-dots" class="nav-dots">
+          <span class="nav-dot-current"></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </nav>
+
+      </div><!-- /slider-wrapper -->
+</div>
 
 <div class='site-innernbt'>
 <div class='content-sidebar-wrapnbt'>
@@ -3200,15 +3314,6 @@ var randomRelatedIndex,showRelatedPost;(function(n,m,k){var d={widgetTitle:"<h4>
 </div>
 
 <div class='sidebarnbt sidebar-primarynbt widget-areanbt'>
-
-<div class='widget widget_search'>
-<form action='/search' id='searchformnbt' method='get' role='search'>
-<div>
-  <input class='search-querynbt' id='s' name='q' type='text' value=''/>
-  <input class='search-submitnbt' id='searchsubmitnbt' type='submit' value='Search'/>
-</div>
-</form>
-</div>
 
 <b:section class='sidebarrightsc' id='sidebarrightsc' preferred='yes'>
   <b:widget id='PopularPosts1' locked='false' title='Popular Posts' type='PopularPosts' version='1' visible='true'>

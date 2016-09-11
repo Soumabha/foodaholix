@@ -10,7 +10,7 @@ var gutil = require('gulp-util');
 var concatCss = require('gulp-concat-css');
 
 // Lint Task
-gulp.task('lint', function() {
+gulp.task('js-compile', function() {
     return gulp.src('src/js/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));

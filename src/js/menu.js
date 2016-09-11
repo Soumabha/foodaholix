@@ -109,7 +109,7 @@ var data = [
 var constants = {
     arrowDown: "",
 	arrowRight: ""
-}
+};
 
 function createSubMenu(menuItem, isTopListItem) {
 	if(!menuItem.submenu) {
@@ -123,25 +123,25 @@ function createSubMenu(menuItem, isTopListItem) {
 	var subMenuData = menuItem.submenu;
 
 	for(var i=0, len=subMenuData.length; i<len; i++) {
-		var menuItem = subMenuData[i];
-		var href = menuItem.link || "#";
-		var htmlString = "<li class='item' data-name='"+menuItem.name+"'><a href='"+href+"'>";
+		var menuItemInternal = subMenuData[i];
+		var href = menuItemInternal.link || "#";
+		var htmlString = "<li class='item' data-name='"+menuItemInternal.name+"'><a href='"+href+"'>";
 
-		if(menuItem.icon) {
-			htmlString += "<span class='MG_Icons24'>"+menuItem.icon+"</span>";
+		if(menuItemInternal.icon) {
+			htmlString += "<span class='MG_Icons24'>"+menuItemInternal.icon+"</span>";
 		}
 
-		htmlString += menuItem.name;
+		htmlString += menuItemInternal.name;
 
-		if(menuItem.submenu) {
+		if(menuItemInternal.submenu) {
 			htmlString += "<span class='MG_Icons24 arrow'>"+constants.arrowRight+"</span>";
 		}
 
-		htmlString += "</a>"+createSubMenu(menuItem)+"</li>";
+		htmlString += "</a>"+createSubMenu(menuItemInternal)+"</li>";
 		subMenu +=  htmlString;
 		
 	}
-	subMenu += "</ul></div>"
+	subMenu += "</ul></div>";
 
 	return subMenu;
 }
@@ -149,7 +149,7 @@ function createSubMenu(menuItem, isTopListItem) {
 function displaySubMenu (targetEl) {
 	var name = targetEl.getAttribute("data-name");
 	var $listItem = $(targetEl);
-	$listItem.addClass('active')
+	$listItem.addClass('active');
 	var $submenu = $("#" + name.replace(/ /g, "_"));
 
 	if(!$submenu.length) {
