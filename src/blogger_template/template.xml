@@ -291,7 +291,7 @@ html {
 }
 
 body {
-  background-color: #E4D2A8;
+  background-color: #E4D1A8;
   background-attachment: scroll;
   color: #666;
   font-family: Rokkitt,sans-serif;
